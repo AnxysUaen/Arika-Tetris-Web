@@ -48,9 +48,6 @@ function gameLoop() {
             }
         }
     }
-    // 2. 检查碰撞
-    // 3. 更新地图区域
-    // 4. 渲染游戏画面
 }
 
 function startGame() {
