@@ -2,7 +2,7 @@
     "compilerOptions": {
         "allowJs": false, // 不允许编译JavaScript文件
         "target": "ES2024", // 编译为现代浏览器支持的ES2024语法
-        "module": "ES6", // 使用ES6模块化标准
+        "module": "ES6", // 使用ES模块系统
         "outDir": "./dist", // 输出目录（存放编译后的JS文件）
         "rootDir": "./src", // 源代码目录（存放.ts文件）
         "strict": true, // 启用严格类型检查

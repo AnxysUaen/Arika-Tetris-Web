@@ -1,4 +1,4 @@
-import type { Block, BlockRotateDirection } from '../tetris/block';
+import type { Block, BlockRotateDirection } from '../tetris/block.js';
 
 /**
  * 获取形状精确位置数组

@@ -1,6 +1,6 @@
-import type { MapArea } from "../tetris/map";
+import type { MapArea } from "../tetris/map.js";
 // import { cloneDeep } from "lodash";
-import { CheckShapeCollision, rotateDirection, ArikaSRS } from "../utils/utils";
+import { CheckShapeCollision, rotateDirection, ArikaSRS } from "../utils/utils.js";
 
 type BlockType = 'I' | 'O' | 'T' | 'S' | 'Z' | 'J' | 'L'; // 方块类型
 type BlockShape = number[][]; // 方块形状类型

@@ -1,6 +1,6 @@
 // 导出俄罗斯方块地图区域类
-import type { Block } from '../tetris/block';
-import { GetShapePositions } from '../utils/utils';
+import type { Block } from '../tetris/block.js';
+import { GetShapePositions } from '../utils/utils.js';
 
 type MapAreaType = number[][]; // 地图区域类型
 type MapAreaDrawType = { color: string }[][]; // 地图区域类型

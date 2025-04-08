@@ -1,6 +1,7 @@
-import { Block } from "../tetris/block";
-import { MapArea } from "../tetris/map";
-import { GetShapePositions } from "../utils/utils";
+import { Block } from "../tetris/block.js";
+import { MapArea } from "../tetris/map.js";
+import { GetShapePositions } from "../utils/utils.js";
+import { GridWidth } from "../config.js";
 
 export function drawGrid(areaDraw: MapArea["areaDraw"]) {
     // 创建canvas元素
@@ -10,8 +11,8 @@ export function drawGrid(areaDraw: MapArea["areaDraw"]) {
         throw new Error("Failed to get 2D context");
     }
     
-    canvas.width = areaDraw[0].length * 50;
-    canvas.height = areaDraw.length * 50;
+    canvas.width = areaDraw[0].length * GridWidth;
+    canvas.height = areaDraw.length * GridWidth;
     
     // 将canvas添加到页面
     document.body.appendChild(canvas);
@@ -30,11 +31,11 @@ export function updateGrid(canvasData: ReturnType<typeof drawGrid> | null, areaD
             if (ctx) {
                 // 绘制地图
                 ctx.fillStyle = areaDraw[i][j].color;
-                ctx.fillRect(j * 50, i * 50, 50, 50);
+                ctx.fillRect(j * GridWidth, i * GridWidth, GridWidth, GridWidth);
                 // 绘制边框
                 ctx.strokeStyle = 'gray';
                 ctx.lineWidth = 1;
-                ctx.strokeRect(j * 50, i * 50, 50, 50);
+                ctx.strokeRect(j * GridWidth, i * GridWidth, GridWidth, GridWidth);
             }
         }
     }
@@ -44,11 +45,11 @@ export function updateGrid(canvasData: ReturnType<typeof drawGrid> | null, areaD
     for (const [x, y] of BlockPositions) {
         if (ctx) {
             ctx.fillStyle = block.color;
-            ctx.fillRect(x * 50, y * 50, 50, 50);
+            ctx.fillRect(x * GridWidth, y * GridWidth, GridWidth, GridWidth);
             // 绘制边框
             ctx.strokeStyle = 'black';
             ctx.lineWidth = 1;
-            ctx.strokeRect(x * 50, y * 50, 50, 50);
+            ctx.strokeRect(x * GridWidth, y * GridWidth, GridWidth, GridWidth);
         }
     } 
 }

@@ -1,7 +1,9 @@
-import { Block, blockTypes, blockColors } from "./tetris/block";
-import { MapArea } from "./tetris/map";
-import { drawGrid, updateGrid } from "./utils/draw";
-import { CheckShapeCollision } from "./utils/utils";
+import { Block, blockTypes, blockColors } from "./tetris/block.js";
+import { MapArea } from "./tetris/map.js";
+import { drawGrid, updateGrid } from "./utils/draw.js";
+import { CheckShapeCollision } from "./utils/utils.js";
+
+import { gameLevel } from "./config.js"; // 游戏速度
 
 let mapArea = new MapArea(10, 20); // 地图区域
 let timer = 0; // 定时器
@@ -14,7 +16,7 @@ function gameLoop() {
     if (currentBlocks.length === 0) {
         const randomBlocks = blockTypes.sort(() => Math.random() - 0.5);
         randomBlocks.forEach((type, index) => {
-            let block = new type({ x: 2, y: 0 }, blockColors[index]);
+            let block = new type({ x: 3, y: 0 }, blockColors[index]);
             if (block.type === 'O') block.position = { x: 4, y: 0 }; // O方块位置调整
             currentBlocks.push(block);
         })
@@ -58,7 +60,7 @@ function startGame() {
         canvasData = drawGrid(mapArea.areaDraw); // 创建画布
     }
     // 启动游戏循环
-    timer = setInterval(gameLoop, 1000); // 60 FPS
+    timer = setInterval(gameLoop, gameLevel); // 60 FPS
 }
 
 startGame(); // 启动游戏
