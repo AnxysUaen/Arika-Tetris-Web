@@ -20,5 +20,9 @@
   "homepage": "https://github.com/AnxysUaen/Arika-Tetris-Web#readme",
   "devDependencies": {
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.17.16",
+    "lodash": "^4.17.21"
   }
 }
