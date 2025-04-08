@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/AnxysUaen/Arika-Tetris-Web.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["Arika", "SRS", "Tetris", "TypeScript", "俄罗斯方块"],
+  "author": "AnxysUaen",
   "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/AnxysUaen/Arika-Tetris-Web/issues"
