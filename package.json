@@ -4,7 +4,7 @@
   "description": "遵循Arika旋转系统实现的，TypeScript俄罗斯方块",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc --watch",
+    "build": "npx tsc --watch && tsc-alias",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/AnxysUaen/Arika-Tetris-Web#readme",
   "devDependencies": {
+    "tsc-alias": "^1.8.13",
     "typescript": "^5.8.2"
   },
   "dependencies": {
