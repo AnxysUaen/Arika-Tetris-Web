@@ -1,2 +1,2 @@
-export const gameLevel = 200;
+export const gameLevel = 800;
 export const GridWidth = 25;

@@ -78,11 +78,12 @@ function rotateBlock(block: Block, mapArea: MapArea, clockwise: BlockRotateDirec
     }
     let rotatedShape: BlockShape = [];
     if (clockwise === 1) {
-        rotatedShape = shape.toReversed().map((_, i) => shape.map(row => row[i]));
+        rotatedShape = shape.toReversed();
+        rotatedShape = rotatedShape.map((_, i) => rotatedShape.map(row => row[i]));
     } else { // 逆时针旋转
         rotatedShape = shape[0].map((_, i) => shape.map(row => row[i])).reverse();
     }
-    const newDirection = rotateDirection(direction, clockwise)
+    const newDirection = rotateDirection(direction, clockwise);
     const rotateRule = block.rotateRule?.[direction]?.[newDirection];
     for (const rule of rotateRule || []) {
         const [x, y] = rule;

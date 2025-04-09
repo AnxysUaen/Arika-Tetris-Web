@@ -27,10 +27,7 @@ function gameLoop() {
         currentBlock = currentBlocks.shift() ?? null;
         if (currentBlock) {
             if (CheckShapeCollision(currentBlock.shape, currentBlock.position, mapArea.area)) {
-                // 如果碰撞，则游戏结束
-                clearInterval(timer); // 游戏结束
-                // TODO: 停止监听键盘事件
-                alert("Game Over!");
+                gameOver()
                 return;
             }
             updateGrid(canvasData, mapArea.areaDraw, currentBlock); // 绘制方块
@@ -50,6 +47,26 @@ function gameLoop() {
     }
 }
 
+function handleKeyDown(event: KeyboardEvent) {
+    if (currentBlock) {
+        switch (event.key) {
+            case "ArrowLeft":
+                currentBlock.move(mapArea, "left"); // 向左移动
+                break;
+            case "ArrowRight":
+                currentBlock.move(mapArea, "right"); // 向右移动
+                break;
+            case "ArrowDown":
+                currentBlock.move(mapArea, "down"); // 向下移动
+                break;
+            case "ArrowUp":
+                currentBlock.rotate(mapArea, 1); // 旋转方块
+                break;
+        }
+        updateGrid(canvasData, mapArea.areaDraw, currentBlock); // 更新画布
+    }
+}
+
 function startGame() {
     if (timer) clearInterval(timer); // 清除之前的定时器
     mapArea = new MapArea(10, 20);
@@ -58,6 +75,18 @@ function startGame() {
     }
     // 启动游戏循环
     timer = setInterval(gameLoop, gameLevel); // 60 FPS
+    // 绑定键盘事件
+    document.addEventListener("keydown", handleKeyDown); // 绑定键盘事件
+}
+
+function gameOver() {
+    alert("Game Over!");
+    if (timer) clearInterval(timer); // 清除定时器
+    timer = 0; // 重置定时器
+    currentBlocks = []; // 清空当前方块组
+    currentBlock = null; // 清空当前活动方块
+    // 移除键盘监听事件
+    document.removeEventListener("keydown", handleKeyDown); // 移除键盘事件监听器
 }
 
 startGame(); // 启动游戏
